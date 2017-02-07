@@ -1,24 +1,4 @@
-# README
+The aim of this task is to create a simple Instagram-like image hosting application that
+additionally performs computer vision analysis via the Google Vision API and provides a visual
+report on the uploaded photos showing what information was found.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
