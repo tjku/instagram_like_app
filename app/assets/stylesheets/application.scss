@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "jquery.filer";
 
 body {
   padding-top: 70px;
@@ -7,6 +8,10 @@ body {
 
 a {
   cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
-@import 'photos';
+@import "photos";
