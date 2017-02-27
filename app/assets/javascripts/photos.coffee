@@ -1,6 +1,6 @@
 ready = ->
   $('#photo_image').filer(
-    limit: 3
+    limit: 1
     extensions: ['jpg', 'jpeg', 'png', 'gif']
     showThumbs: true
     templates:
@@ -35,7 +35,7 @@ ready = ->
     captions:
       button: 'Choose file'
       feedback: 'Choose file to upload'
-      feedback2: 'file were chosen'
+      feedback2: 'file was chosen'
   )
 
 $(document).on('turbolinks:load', ready)
