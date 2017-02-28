@@ -44,6 +44,7 @@ group :development, :test do
   gem 'capybara', '2.12.0'
   gem 'poltergeist', '1.13.0' # JavaScript driver for Capybara
   gem 'factory_girl_rails', '4.8.0'
+  gem 'database_cleaner', '1.5.3'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

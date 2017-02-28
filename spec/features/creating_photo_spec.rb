@@ -6,19 +6,41 @@ RSpec.describe Photo, type: :feature do
       visit new_photo_path
     end
 
-    scenario 'show the photo on the photo page' do
-      attach_file 'Image', 'spec/support/fixtures/image.jpg'
-      click_button 'Create Photo'
-
-      expect(page).to have_selector('img')
-      expect(page).to have_content('Delete photo')
+    scenario 'shows valid input text', js: true do
+      expect(page).to have_content('Choose file to upload')
     end
 
-    scenario 'cannot submit a blank image field' do
-      click_button 'Create Photo'
+    feature 'with valid information' do
+      background do
+        attach_file 'photo[image]', 'spec/fixtures/image.jpg'
+      end
 
-      expect(page).to have_selector('form')
-      expect(page).to have_css('#new_photo')
+      scenario 'shows preview of uploaded image', js: true do
+        expect(page).to have_css('.jFiler-item-thumb')
+        expect(page).to have_selector('img')
+      end
+
+      scenario 'should create a photo' do
+        expect { click_button 'Upload' }.to change(Photo, :count).by(1)
+      end
+    end
+
+    feature 'with invalid (blank) information' do
+      scenario "don's show preview of uploaded image", js: true do
+        expect(page).not_to have_selector('img')
+      end
+
+      scenario 'should not create a photo' do
+        expect { click_button 'Upload' }.not_to change(Photo, :count)
+      end
+
+      scenario 'should show error message' do
+        click_button 'Upload'
+
+        expect(page).to have_content("Image can't be blank")
+        expect(page).to have_selector('form')
+        expect(page).to have_css('#new_photo')
+      end
     end
   end
 end
