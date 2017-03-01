@@ -3,4 +3,6 @@ class Photo < ApplicationRecord
 
   validates_attachment :image, presence: true,
                                content_type: { content_type: %r{\Aimage\/.*\z} }
+
+  default_scope { order created_at: :desc }
 end
